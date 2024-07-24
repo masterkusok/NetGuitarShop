@@ -1,0 +1,33 @@
+﻿@model GuitarStoreUser;
+@{
+	ViewBag.PageName = "Account: Edit";
+	ViewBag.FooterEnabled = false;
+	ViewBag.NavbarEnabled = false;
+}
+<div class="col-md-8 me-auto ms-auto text-center text-light bg-black bg-opacity-25 p-5 border border-3 rounded-5 border-opacity-10
+	border-round border-solid" style="margin-top: 20vh">
+	<h2>Edit user data</h2>
+	<ul class="list-group transapernt-bg bg-transparent border-0" style="font-size:larger">
+		<li class="list-group-item p-3 bg-transparent border-0 text-light">
+			<h5>Username:</h5>
+			<div class="row w-100">
+				<p class="col-md-9">@Model.UserName</p>
+				<a asp-action=ChangeUsername asp-controller=ChangeUsername class="col-md-3 btn btn-light ms-auto">Change</a>
+			</div>
+		</li>
+		<li class="list-group-item p-3 bg-transparent border-0 text-light">
+			<h5>Email:</h5>
+			<div class="row w-100">
+				<p class="col-md-9">@Model.Email</p>
+				<a asp-action=ChangeEmail asp-controller=ChangeEmail class="btn btn-light col-md-3 ms-auto">Change</a>
+			</div>
+		</li>
+		<li class="list-group-item p-3 bg-transparent border-0 text-light">
+			<h5>Password:</h5>
+			<div class="row w-100">
+				<p class="col-md-9">Hidden</p>
+				<a asp-controller=ChangePassword asp-action=EmailSent class="btn btn-light col-md-3 ms-auto">Change</a>
+			</div>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,38 @@
+﻿@using System.Globalization
+@model ProductListViewModel
+@{
+	ViewBag.CurrentType = Model.Filters["Type"];
+	ViewBag.CurrentBrand = Model.Filters["Brand"];
+	ViewBag.CurrentSeries = Model.Filters["Series"];
+
+	ViewBag.PageName = "Shop";
+}
+
+<div class="container-fluid text-light row" style="margin-top:20vh;">
+	<h2 class="text-center spaced-letters">CATALOGUE</h2>
+	<div class="col-md-3 bg-dark text-light">
+		@await Component.InvokeAsync("FilterSelect")
+	</div>
+	<div class="col-md-9">
+		@for (int i = 0; i < Math.Ceiling((double)Model.Products.Count() / 3); i++)
+		{
+			<div class="card-deck row mt-5">
+				@foreach (Product prod in Model.Products.Skip(i*3).Take(3))
+				{
+					<div class="card col-md-3 bg-dark text-light m-2">
+						<img class="card-img-top img-thumbnail" src=@(prod.ImgUrls.Any()?prod.ImgUrls.First():"/image/default.png")>
+						<div class="card-body text-center justify-content-center">
+							<h5 class="card-title">@prod.Name</h5>
+							<p class="card-text prod-desctiption">
+								@(prod.Description.Length > 120 ? prod.Description.Substring(0, 117) + "..." : prod.Description)
+							</p>
+							<a class="btn btn-primary" asp-action="Product" asp-route-id=@prod.Id>
+								@prod.Price.ToString("c2", CultureInfo.CreateSpecificCulture("en-us"))
+							</a>
+						</div>
+					</div>
+				}
+			</div>
+		}
+	</div>
+</div>

@@ -1,0 +1,3 @@
+﻿@model Cart
+<i class="fa fa-shopping-cart"></i><span class="text-light">
+	@(Model.GetTotalQuantity() <= 99 ? Model.GetTotalQuantity() : "99+")</span>

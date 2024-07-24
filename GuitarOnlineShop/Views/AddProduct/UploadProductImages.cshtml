@@ -1,0 +1,24 @@
+﻿@model UploadProductImageViewModel
+@{
+	ViewBag.FooterEnabled = false;
+}
+
+<div class="text-center text-light" style="margin-top:20vh">
+	@if (ViewData.ContainsKey("jsonProduct"))
+	{
+		<h3>Upload images for new product</h3>
+		<form method="post" asp-action=UploadProductImages enctype="multipart/form-data">
+			<div asp-validation-summary=All class="text-danger"></div>
+			<div class="mb-3">
+				<div class="form-text">Attach 1 or more images of product</div>
+				<input type="file" name=Files multiple/>
+				<input asp-for=CreatedProductJson type="hidden" value=@ViewData["jsonProduct"]/>
+			</div>
+			<button type="submit" class="btn btn-success">Upload files</button>
+		</form>
+	}
+	else
+	{
+		<h3>It seems like you shouldn't be there...</h3>
+	}
+</div>

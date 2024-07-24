@@ -1,0 +1,65 @@
+﻿@model Product
+<div class="text-light flex-grow-1" style="margin-top:15vh">
+	<h1 class="text-center">@Model.Name</h1>
+	<div class="row">
+		<div class="col-md-7 m-2">
+			@if (Model.ImgUrls.Count() > 1)
+			{
+				<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-indicators">
+						@for (int i = 0; i < Model.ImgUrls.Count(); i++)
+						{
+							<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@i" class="@(i == 0 ? "active" : "" )" aria-current="true"></button>
+						}
+					</div>
+					<div class="carousel-inner border-rounded border">
+						@foreach (string url in Model.ImgUrls)
+						{
+							<div class="carousel-item @(url == Model.ImgUrls.First() ? "active" : "")">
+								<img src="@url" class="d-block w-100" 
+								style="width:50rem; height:25rem; object-fit:cover" alt="...">
+							</div>
+						}
+					</div>
+					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Previous</span>
+					</button>
+					<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="visually-hidden">Next</span>
+					</button>
+				</div>
+			}
+			else if(Model.ImgUrls.Count() == 1) {
+				<img src="@Model.ImgUrls.First()" class="d-block w-100" 
+								style="width:50rem; height:25rem; object-fit:cover" alt="...">
+			}
+			else
+			{
+				<h6>No images</h6>
+			}
+		</div>
+		<div class="col-md-4 text-center">
+			<h4>Description</h4>
+			<p>@Model.Description</p>
+			<a class="btn btn-primary mt-3" asp-action="AddItem" asp-controller="Cart" asp-route-id=@Model.Id
+			asp-route-returnUrl="@(Context.Request.Path.ToString() + Context.Request.QueryString.ToString() ?? "")">
+			Purchase for $@Model.Price</a>
+		</div>
+	</div>
+	<div class="text-center mt-5">
+		<h3>Specifications</h3>
+		<table class="table table-bordered text-light border-black ms-auto me-auto" style="width:65vw;">
+			<tbody>
+				@foreach(var pair in Model.Specs)
+				{
+					<tr>
+						<th>@pair.Key</th>
+						<td>@pair.Value</td>
+					</tr>
+				}
+			</tbody>
+		</table>
+	</div>
+</div>

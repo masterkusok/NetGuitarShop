@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/GuitarOnlineShop/bin
+/GuitarOnlineShop/wwwroot/lib
+/GuitarOnlineShop/obj

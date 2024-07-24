@@ -1,0 +1,37 @@
+﻿.nav-link.tab-link.active {
+    border: none;
+    text-decoration-color: rgba(255, 137, 33, 1);
+}
+
+.nav-link.tab-link:hover {
+    border: none;
+    text-decoration-color: rgb(200, 200, 200, 1);
+    transition-property: text-decoration-color;
+    transition-duration: 0.3s;
+}
+
+.nav-link.tab-link {
+    font-size:larger;
+    border: none;
+    text-decoration: underline 0.35em rgba(255, 137, 33, 0);
+    transition-property: text-decoration-color;
+    transition-duration: 0.3s;
+}
+
+.nav-link.tab-link{
+    border:none;
+    transition:none;
+}
+.nav-link.tab-link:hover{
+    border:none;
+}
+.nav-link.tab-link:hover:after {
+    border: none;
+}
+.nav-tabs{
+    border:none;
+}
+
+.bg-l-dark {
+    background-color: #343a40;
+}

@@ -1,0 +1,41 @@
+﻿@model Cart
+<div class="p-3">
+	@if (!Model.CartLines.Any())
+	{
+		<p>No items in cart!</p>
+	}
+	else
+	{
+		<table class="table table-dark table-striped table-hover table-borderless">
+			<thead>
+				<tr>
+					<th>Position</th>
+					<th>Quantity</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach(CartLine line in Model.CartLines.Take(3))
+				{
+					<tr>
+						<td>@line.Product.Name</td>
+						<td>@line.Quantity</td>
+						<td>$@(line.Quantity * line.Product.Price)</td>
+					</tr>
+				}
+				@if(Model.CartLines.Count() > 3)
+				{
+					<tr>
+						<td>And @(Model.CartLines.Count() - 3) more item(s)</td>
+					</tr>
+				}
+				<tr>
+					<th>Total</th>
+					<th>@Model.GetTotalQuantity()</th>
+					<th>$@Model.GetTotalPrice()</th>
+				</tr>
+			</tbody>
+		</table>
+	}
+	<a class="btn btn-primary" asp-controller=Cart asp-action=Details>View More</a>
+</div>

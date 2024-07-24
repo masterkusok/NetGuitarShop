@@ -1,0 +1,26 @@
+﻿@model ChangePasswordViewModel
+@{
+	ViewBag.PageTitle = "Reset Password";
+	ViewBag.FooterEnabled = false;
+	ViewBag.NavbarEnabled = false;
+}
+<div class="col-md-8 me-auto ms-auto text-center text-light bg-black bg-opacity-25 p-5 border border-3 rounded-5 border-opacity-10
+	border-round border-solid" style="margin-top: 20vh">
+	<form asp-action=Reset method="post">
+		<div class="text-danger" asp-validation-summary=All></div>
+		<h2>Edit user data</h2>
+		<ul class="list-group transapernt-bg bg-transparent border-0" style="font-size:larger">
+			<li class="list-group-item p-3 bg-transparent border-0 text-light">
+				<label asp-for=NewPassword>New Password</label>
+				<input class="form-control" asp-for=NewPassword />
+			</li>
+			<li class="list-group-item p-3 bg-transparent border-0 text-light">
+				<label asp-for=NewPasswordRepeat>Repeat new Password</label>
+				<input class="form-control" asp-for=NewPasswordRepeat/>
+			</li>
+			<li class="list-group-item p-3 bg-transparent border-0 text-light">
+				<button type="submit" class="btn btn-outline-light">Submit</button>
+			</li>
+		</ul>
+	</form>
+</div>

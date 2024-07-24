@@ -1,0 +1,103 @@
+﻿@{
+	ViewBag.PageName = "Home";
+}
+<div class="bg-video">
+	<video disablePictureInPicture loop autoplay muted src="~/video/bgclip1.mp4"></video>
+</div>
+<div id="pageHeader">
+	<h1 class="text-center text-light justify-content-center" id="pageHeader">HOME</h1>
+</div>
+<div class="overlay m-0 bg-dark">
+	<div class="spacer text-light text-center p-3" style="width:100%">
+		<h3 class="text-start mt-5">Products</h3>
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<a class="nav-link tab-link active bg-transparent text-light" data-bs-toggle="tab" href="#eg">Electric Guitars</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link tab-link bg-transparent text-light" data-bs-toggle="tab" href="#ag">Acoustic Guitars</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link tab-link bg-transparent text-light" data-bs-toggle="tab" href="#bg">Bass Guitars</a>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div class="tab-pane fade show active text-center" id="eg">
+				<h3>Electric Guitar Series</h3>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="series-block">
+							<img class="series-image" src="~/image/fgnilliad.png" />
+							<div class="image-blackout bg-dark"></div>
+							<h2 class="text-light text-center hidden-text">Illiad</h2>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="series-block">
+							<img class="series-image" src="~/image/fgnmythic.png" />
+							<div class="image-blackout bg-dark"></div>
+							<h2 class="text-light text-center hidden-text">Mythic</h2>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="series-block">
+							<img class="series-image" src="~/image/fgnodyssey.png" />
+							<div class="image-blackout bg-dark"></div>
+							<h2 class="text-light text-center hidden-text">Odyssey</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="ag">
+				<h3>Acoustic Guitar Series</h3>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="series-block">
+							<img class="series-image" src="~/image/fgnmasterfield.png" />
+							<div class="image-blackout bg-dark"></div>
+							<h2 class="text-light text-center hidden-text">Masterfield</h2>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="series-block">
+							<img class="series-image" src="~/image/denver.png" />
+							<div class="image-blackout bg-dark"></div>
+							<h2 class="text-light text-center hidden-text">Denver</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="bg">
+				<h3>Bass Guitar Series</h3>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="series-block">
+							<img class="series-image" src="~/image/fgnmj.png" />
+							<div class="image-blackout bg-dark"></div>
+							<h2 class="text-light text-center hidden-text">Mighty Jazz</h2>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="series-block">
+							<img class="series-image" src="~/image/dingwallz.png" />
+							<div class="image-blackout bg-dark"></div>
+							<h2 class="text-light text-center hidden-text">Z-series</h2>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="series-block">
+							<img class="series-image" src="~/image/ibanezk.png" />
+							<div class="image-blackout bg-dark"></div>
+							<h2 class="text-light text-center hidden-text">K-series</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="justify-content-center p-5 mt-5">
+			<a class="bg-transparent text-light aesthetic-hover-btn" asp-controller="Shop" asp-action="List"> 
+				<h3>SHOP ONLINE</h3>
+			</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model bool
+@{
+	ViewBag.PageTitle = "Control panel";
+	ViewBag.FooterEnabled = false;
+	ViewBag.NavbarEnabled = false;
+}
+<div class="col-md-8 me-auto ms-auto text-center text-light bg-black bg-opacity-25 p-5 border border-3 rounded-5 border-opacity-10
+	border-round border-solid" style="margin-top: 20vh">
+	<div class="text-danger" asp-validation-summary=All></div>
+	<h2>Control Panel</h2>
+	<ul class="list-group transapernt-bg bg-transparent border-0" style="font-size:larger">
+		@if (Model)
+		{
+			<li class="list-group-item p-3 bg-transparent border-0 text-light">
+				<a class="col-md-3 btn btn-light ms-auto" asp-action="UserManagement">User management</a>
+			</li>
+		}
+		<li class="list-group-item p-3 bg-transparent border-0 text-light">
+			<a class="col-md-3 btn btn-light ms-auto" asp-action="OrderManagement">Order management</a>
+		</li>
+		<li class="list-group-item p-3 bg-transparent border-0 text-light">
+			<a class="col-md-3 btn btn-light ms-auto" asp-action="ProductsManagement">Products management</a>
+		</li>
+		<li class="list-group-item p-3 bg-transparent border-0 text-light">
+			<a class="col-md-3 btn btn-light ms-auto" asp-controller=AddProduct	asp-action="CreateProduct">Create product</a>
+		</li>
+		<li class="list-group-item p-3 bg-transparent border-0 text-light">
+			<a class="col-md-3 btn btn-light ms-auto" asp-controller=Home asp-action="Index">Home</a>
+		</li>
+	</ul>
+</div>

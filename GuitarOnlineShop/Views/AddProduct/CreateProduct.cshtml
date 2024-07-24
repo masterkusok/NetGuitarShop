@@ -1,0 +1,75 @@
+﻿@model CreateProductViewModel
+@{
+	ViewBag.FooterEnabled = false;
+}
+
+<div class="container text-light p-3" style="margin-top:20vh">
+	<h2 class="text-center">Create New Product</h2>
+	<form asp-action=CreateProduct method="post">
+		<div asp-validation-summary=All class="text-danger text-center"></div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="mb-3">
+					<label class="m-2" asp-for=Name></label>
+					<input class="m-2" asp-for=Name />
+					<div class="form-text">Enter product's name without brand series and etc.</div>
+				</div>
+				<div class="mb-3">
+					<label class="m-2" asp-for=Brand></label>
+					<select class="mb-3 m-2" aria-label=".form-select-lg example" asp-for=Brand>
+						@foreach (string brand in ViewBag.Brands)
+						{
+							<option value=@brand>@brand</option>
+						}
+					</select>
+				</div>
+				<div class="mb-3">
+					<label class=" m-2" asp-for=Type></label>
+					<select class="mb-3 m-2" aria-label=".form-select-lg example" asp-for=Type>
+						@foreach (string type in ViewBag.Types)
+						{
+							<option value=@type>@type</option>
+						}
+					</select>
+				</div>
+				<div class="mb-3">
+					<label class=" m-2" asp-for=Series></label>
+					<input asp-for=Series type="text" />
+				</div>
+				<div class="mb-3">
+					<label class="m-2" asp-for=Price></label>
+					<input asp-for=Price type="number" />
+				</div>
+				<div class="mb-3">
+					<label class="m-3" asp-for=Description></label>
+					<textarea asp-for=Description></textarea>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="mb-3">
+					<label>Specs</label>
+					<table class="table-dark table-borderless table-striped">
+						<thead>
+							<tr><th>Name</th><th>Value</th></tr>
+						</thead>
+						<tbody>
+							@for(int i = 0; i < 10; i++)
+							{
+								<tr>
+									<td>
+										<input type="text" asp-for="SpecKeys[i]">
+									</td>
+									<td>
+										<input type="text" asp-for="SpecValues[i]">
+									</td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<button type="submit" class="text-center btn btn-success">Submit</button>
+	</form>
+
+</div>

@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Product>
+<div class="border-end border-light border-5 border-rounded p-3 m-3">
+	<h4>Filters:</h4>
+
+	<h5>Product Type:</h5>
+	<ul>
+		<li class="m-1">
+			<a class="btn text-light
+			@(string.IsNullOrEmpty(ViewBag.CurrentType) ? "btn-primary" : "btn-outline")"
+			   asp-route-type="" asp-route-brand=@ViewBag.CurrentBrand asp-route-Series=@ViewBag.CurrentSeries>All</a>
+		</li>
+		@foreach (string type in Model.Select(prod => prod.Type).Distinct())
+		{
+			<li class="m-1">
+				<a class="btn text-light
+			@(ViewBag.CurrentType == type ? "btn-primary" : "btn-outline")"
+			   asp-route-type=@type asp-route-brand=@ViewBag.CurrentBrand asp-route-Series=@ViewBag.CurrentSeries>@type</a>
+			</li>
+		}
+	</ul>
+
+	<h5 class="mt-5">Product Brand:</h5>
+	<ul>
+		<li class="m-1">
+			<a class="btn text-light
+			@(string.IsNullOrEmpty(ViewBag.CurrentBrand) ? "btn-primary" : "btn-outline")"
+			   asp-route-brand="" asp-route-type=@ViewBag.CurrentType asp-route-Series=@ViewBag.CurrentSeries>All</a>
+		</li>
+		@foreach (string brand in Model.Select(prod => prod.Brand).Distinct())
+		{
+			<li class="m-1">
+				<a class="btn text-light
+			@(ViewBag.CurrentBrand == brand ? "btn-primary" : "btn-outline")"
+			   asp-route-brand=@brand asp-route-type=@ViewBag.CurrentType asp-route-Series=@ViewBag.CurrentSeries>@brand</a>
+			</li>
+		}
+	</ul>
+
+	<h5 class="mt-5">Product Series:</h5>
+
+	<ul>
+		<li class="m-1">
+			<a class="btn text-light
+			@(string.IsNullOrEmpty(ViewBag.CurrentSeries) ? "btn-primary" : "btn-outline")"
+			   asp-route-series="" asp-route-type=@ViewBag.CurrentType asp-route-brand=@ViewBag.CurrentBrand>All</a>
+		</li>
+		@foreach (string series in Model.Select(prod => prod.Series).Distinct())
+		{
+			<li class="m-1">
+				<a class="btn text-light
+			@(ViewBag.CurrentSeries == series ? "btn-primary" : "btn-outline")"
+			   asp-route-series=@series asp-route-type=@ViewBag.CurrentType asp-route-brand=@ViewBag.CurrentBrand>@series</a>
+			</li>
+		}
+	</ul>
+</div>

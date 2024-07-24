@@ -1,0 +1,31 @@
+﻿@model GuitarStoreUser
+@{
+	ViewBag.FooterEnabled = false;
+	ViewBag.PageName = "Account info";
+}
+
+<div class="col-md-8 me-auto ms-auto text-center text-light bg-black bg-opacity-25 p-5 border border-3 rounded-5 border-opacity-10
+	border-round border-solid" style="margin-top: 20vh;">
+	<h2>Account info</h2>
+	<ul class="list-group transapernt-bg bg-transparent border-0" style="font-size:larger">
+		<li class="list-group-item p-3 bg-transparent border-0 text-light">
+			<a asp-action=orders class="link-light">Orders</a>
+		</li>
+		<li class="list-group-item p-3 bg-transparent border-0 text-light">
+			<a asp-action=edit class="link-light">Edit user's data</a>
+		</li>
+		<li class="list-group-item p-3 bg-transparent border-0 text-light">
+			@if (!Model.EmailConfirmed)
+			{
+				<a asp-action=SendEmail asp-controller=ConfirmEmail class="link-light">Confirm email</a>
+			}
+			else
+			{
+				<p>Email confirmed</p>
+			}
+		</li>
+		<li class="list-group-item p-3  bg-transparent border-0 text-light">
+			<a asp-action=logout class="btn btn-danger">Logout</a>
+		</li>
+	</ul>
+</div>
